@@ -5,8 +5,6 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,10 +39,16 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: npm run build
+      run: npm run build:gh-pages
       env:
         NODE_ENV: production
         
+    - name: Copy .nojekyll
+      run: cp public/.nojekyll dist/.nojekyll
+      
+    - name: List dist contents
+      run: ls -la dist/
+      
     - name: Setup Pages
       uses: actions/configure-pages@v5
       

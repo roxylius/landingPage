@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/landingPage/",
+    "build": "vite build",
+    "build:gh-pages": "vite build --base=/landingPage/",
     "lint": "eslint .",
     "preview": "vite preview --base=/landingPage/"
   },
