@@ -1,0 +1,472 @@
+body {
+    display: block;
+    position: center;
+    font-family: 'Space Mono', monospace;
+    background-color: rgb(240, 244, 247);
+    background: linear-gradient(-70deg, #202020, #000000);
+    height: 100vh;
+
+}
+
+
+
+.box {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    overflow-x: hidden;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+/* Background circles start */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(120deg, #1D976C, #2c3e50);
+}
+
+.circles {
+    position: absolute;
+    height: 270px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.circle-1 {
+    height: 300px;
+    width: 300px;
+    top: 8%;
+    left: -50px;
+    opacity: 0.8;
+    animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+    animation-iteration-count: infinite;
+    animation-name: float;
+    -webkit-animation-name: float;
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+    animation-direction: alternate;
+
+}
+
+.circle-2 {
+    height: 240px;
+    width: 240px;
+    bottom: 18%;
+    right: -100px;
+    opacity: 0.8;
+    animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+    animation-iteration-count: infinite;
+    animation-name: float;
+    -webkit-animation-name: float;
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    animation-direction: alternate;
+}
+
+/* Background circles end */
+
+
+
+
+
+/* ANIMATIONS */
+@keyframes explode {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+
+    0% {
+        -webkit-transform: rotateX(0deg) translateY(0px);
+        -moz-transform: rotateX(0deg) translateY(0px);
+        -ms-transform: rotateX(0deg) translateY(0px);
+        -o-transform: rotateX(0deg) translateY(0px);
+        transform: rotateX(0deg) translateY(0px);
+    }
+
+    50% {
+        -webkit-transform: rotateX(0deg) translateY(1px) translateX(5px);
+        -moz-transform: rotateX(0deg) translateY(10px) translateX(5px);
+        -ms-transform: rotateX(0deg) translateY(30px) translateX(5px);
+        -o-transform: rotateX(0deg) translateY(40px) translateX(5px);
+        transform: rotateX(0deg) translateY(10px) translateX(5px);
+    }
+
+    100% {
+        -webkit-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -moz-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -ms-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -o-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        transform: rotateX(0deg) translateY(0px) translateX(1px);
+    }
+
+}
+
+.mdl {
+    height: auto;
+    width: 420px;
+    /* position: absolute; */
+    /* top: 45%;
+    left: 50%; */
+    transform: translate(-0%, -0%);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    color: #ffffff;
+    width: 420px;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+.card {
+    height: 260px;
+    width: 420px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(35px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+    padding: 30px 30px 30px 30px;
+    overflow: hidden;
+
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* updated changes */
+.card form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+.card-nav {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(35px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    /* overflow: hidden; <-- This was removed as it clips child elements */
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    justify-content: center;
+}
+
+.nav-left {
+    flex-grow: 1;
+    align-self: center;
+    margin-bottom: 12px;
+    /* This allows the search input to expand */
+}
+
+.search-icon-btn,
+.logout-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    /* Prevents icons from shrinking */
+}
+
+.search-input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    box-sizing: border-box;
+    outline: none;
+    /* Width and padding are controlled by framer-motion */
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.group {
+    display: flex;
+    /* Changed from inline-flex for consistency */
+    margin: 0;
+    padding: 0;
+}
+
+.underline {
+    transition: all 0.3s;
+    display: inline-block;
+    bottom: 0;
+    left: -100%;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+
+label {
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: 'Space Mono', monospace;
+    pointer-events: none;
+    display: block;
+    padding-bottom: 2px;
+
+}
+
+
+/*New style changes*/
+/* Additions to taskform.css */
+.card-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-icon-btn,
+.add-task-btn,
+.delete-button,
+.logout-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.search-input,
+.task-input {
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+
+    position: relative;
+    bottom: 0.2em;
+
+}
+
+.task-list {
+    margin-top: 20px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.task-item.completed {
+    background: rgba(100, 200, 100, 0.2);
+    text-decoration: line-through;
+}
+
+.task-item.pending {
+    background: rgba(200, 200, 100, 0.2);
+}
+
+.task-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.task-title {
+    font-weight: bold;
+    color: white;
+}
+
+.task-description {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.task-date {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.DialogOverlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DialogContent {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(35px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    max-width: 400px;
+    text-align: center;
+}
+
+.DialogActions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.SelectTrigger {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.SelectContent {
+    background: rgba(0, 0, 0, 0.4);
+    /* Darker background */
+    backdrop-filter: blur(15px);
+    /* Add blur for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    color: white;
+    margin-top: 5px;
+}
+
+.SelectItem {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.SelectItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* === Responsive Styles for Mobile === */
+@media (max-width: 520px) {
+
+    .mdl,
+    .card,
+    .card-nav {
+        width: 90vw;
+        /* Use viewport width instead of fixed pixels */
+        max-width: 90vw;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .circles {
+        /* Make background circles cover more of the smaller screen */
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .circle-1 {
+        /* height: 200px;
+        width: 200px; */
+        top: 8%;
+        left: -10%;
+    }
+
+    .circle-2 {
+        /* height: 180px;
+        width: 180px; */
+        bottom: 18%;
+        right: -15%;
+    }
+
+    .card {
+        height: auto;
+        /* Allow card to grow based on content */
+        min-height: 260px;
+        padding: 20px;
+    }
+
+    .nav-left {
+        flex-basis: 80%;
+        /* Give search area more space */
+    }
+
+    .search-input,
+    .task-input {
+        font-size: 14px;
+        /* Make input text slightly smaller */
+    }
+}
